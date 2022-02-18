@@ -1,0 +1,14 @@
+h1{
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    font-size: 100px;
+}
+
+p{
+    color: rgb(112, 169, 213)
+}
+h2{
+    color: #ff345f;
+    text-decoration: underline wavy;
+}
