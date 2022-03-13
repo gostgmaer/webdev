@@ -1,0 +1,10 @@
+html{
+    margin: auto;
+}
+
+
+.winner{
+    color: green;
+}.looser{
+    color: red;
+}
