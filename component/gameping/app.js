@@ -137,7 +137,7 @@ function applyStyle(){
   appstyle.buttonp1.className='btn btn-info';
   appstyle.button2.className='btn btn-info';
   appstyle.reset1.className='btn btn-denger';
-  appstyle.buttonp1.className='btn btn-info';
+  appstyle.section1.className='col-3 text-center container';
   appstyle.buttonp1.className='btn btn-info';
   appstyle.buttonp1.className='btn btn-info';
   appstyle.buttonp1.className='btn btn-info';
