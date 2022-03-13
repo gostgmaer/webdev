@@ -108,3 +108,41 @@ function reset() {
   p1.button.Disabled = false;
   p1.button.Disabled = false; */
 }
+
+/* ==================================================================================
+
+
+
+
+ Adding CSS on our Application to look good everything working only with JS 
+ 
+ 
+ 
+ 
+ =============================================================================================*/
+
+let appstyle = {
+  buttonp1: document.querySelector("#p1btn"),
+  displayt1: document.querySelector("#p1display"),
+  button2: document.querySelector("#p2btn"),
+  display2: document.querySelector("#p2display"),
+  myselect: document.querySelector("#my-select"),
+  section1: document.querySelector("#topsection1"),
+  h1: document.querySelector("#h11"),
+  div1: document.querySelector("#divselect"),
+  label1: document.querySelector("#for-select"),
+  reset1: document.querySelector("#reset"),
+};
+function applyStyle(){
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.button2.className='btn btn-info';
+  appstyle.reset1.className='btn btn-denger';
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.buttonp1.className='btn btn-info';
+  appstyle.buttonp1.className='btn btn-info';
+}
+
+applyStyle();

@@ -1,10 +1,9 @@
-html{
-    margin: auto;
+@import "../style.css";
+
+
+.winner {
+  color: green;
 }
-
-
-.winner{
-    color: green;
-}.looser{
-    color: red;
+.looser {
+  color: red;
 }
