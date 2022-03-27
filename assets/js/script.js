@@ -31,7 +31,7 @@ while(guass !== targetnum){
 }
 console.log(`You win! it took you ${attampt}`); */
 
-let inputData = prompt("What You want to do? \n New \n Delete \n List \n Quit");
+/* let inputData = prompt("What You want to do? \n New \n Delete \n List \n Quit");
 const todos = ["Collect Checken Eggs", "Clean Letter Box"];
 
 while (inputData !== "Quit" && inputData !== "q") {
@@ -55,3 +55,4 @@ while (inputData !== "Quit" && inputData !== "q") {
 }
 
 console.log("You Quit this Application!");
+ */
