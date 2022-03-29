@@ -1,6 +1,13 @@
 /* console.log('API CALL JS is Working Fine');
 
  */
+/* 
+const { default: axios } = require("axios"); */
+/* 
+const { Axios } = require("axios"); */
+
+
+/* const { default: axios } = require("axios"); */
 
 /* const apiReq = new XMLHttpRequest();
 
@@ -36,7 +43,7 @@ console.log(resss); */
     console.log("Error", e);
   }); */
 
-const fetTvShow = async() =>{
+/* const fetTvShow = async() =>{
     const res = await fetch("https://api.tvmaze.com/search/shows?q=heros")
     console.log(res);
     const data= await res.json();
@@ -58,3 +65,13 @@ try {
 }
    
 }
+ */
+
+
+const axios = new axios;
+
+axios.get('https://api.tvmaze.com/search/shows?q=girls').then(res =>{
+  console.log(res.data.score);
+})
+
+
