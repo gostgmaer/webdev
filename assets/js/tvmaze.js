@@ -22,14 +22,17 @@ const headsearchbtn = document.querySelector("#search-header");
 const headingTxt = document.querySelector("#heading-txt");
 const headFormSearch = document.querySelector("#head-form-search");
 
+headsearchtxt.addEventListener('change', function(){
+  removeELE()
+})
+
+
 headFormSearch.addEventListener("submit", async function (e) {
-  if(result.show.image){
-    removeELE()
-  }
+ 
   e.preventDefault();
-  console.dir(headFormSearch);
+  /* console.dir(headFormSearch); */
   const userInput = headFormSearch.firstElementChild.value;
-  console.log(headFormSearch.firstElementChild.value);
+  /* console.log(headFormSearch.firstElementChild.value); */
   const paramss = { params: { q: userInput }, headers: {} };
   const res = await axios.get(`https://api.tvmaze.com/search/shows`, paramss);
   makeIMG(res.data);
@@ -39,8 +42,8 @@ headFormSearch.addEventListener("submit", async function (e) {
 const makeIMG = (shows) => {
   for (let result of shows) {
     if (result.show.image) {
-      console.log(result);
-      console.log(result.show.image.medium);
+     /*  console.log(result);
+      console.log(result.show.image.medium); */
       const img = document.createElement("img");
       img.src = result.show.image.medium;
       document.body.append(img);
@@ -51,7 +54,8 @@ const makeIMG = (shows) => {
 
 const removeELE = () => {
   const getimg = document.querySelectorAll(".img-thumbnail");
-  for (let index = 0; index <= getimg.length; index++) {
+  for (let index = 0; index < getimg.length; index++) {
     getimg[index].remove();
+    console.log("Event is Working")
   }
 };
