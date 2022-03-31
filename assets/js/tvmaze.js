@@ -5,7 +5,7 @@ const makeRandomColor = () => {
   return `rgb(${r},${g},${b})`;
 };
 
-const tvShow = async () => {
+/* const tvShow = async () => {
   try {
     const res = await axios.get(
       "https://api.tvmaze.com/singlesearch/shows?q=girls"
@@ -15,7 +15,7 @@ const tvShow = async () => {
   } catch (error) {
     console.log("Error", error);
   }
-};
+}; */
 
 const headsearchtxt = document.querySelector("#search-input");
 const headsearchbtn = document.querySelector("#search-header");
@@ -37,7 +37,10 @@ headFormSearch.addEventListener("submit", async function (e) {
   const res = await axios.get(`https://api.tvmaze.com/search/shows`, paramss);
   makeIMG(res.data);
   headFormSearch.firstElementChild.value = "";
+  
 });
+
+
 
 const makeIMG = (shows) => {
   for (let result of shows) {
