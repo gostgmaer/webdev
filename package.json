@@ -1,0 +1,29 @@
+{
+  "name": "webdev",
+  "version": "1.0.0",
+  "description": "We use for this package for develop our application",
+  "main": "app.js",
+  "dependencies": {
+    "color": "^4.2.3",
+    "colors": "^1.4.0",
+    "figlet": "^1.5.2",
+    "give-me-a-joke": "^0.5.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gostgmaer/webdev.git"
+  },
+  "author": "kishor sarkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gostgmaer/webdev/issues"
+  },
+  "homepage": "https://github.com/gostgmaer/webdev#readme"
+}
