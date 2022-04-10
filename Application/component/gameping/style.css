@@ -1,0 +1,9 @@
+@import "../style.css";
+
+
+.winner {
+  color: green;
+}
+.looser {
+  color: red;
+}
