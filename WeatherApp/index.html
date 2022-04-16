@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application Using Node and weatherBit API</title>
+    <link rel="stylesheet" href="./styles.css">
+    <!--  <link rel="stylesheet" href="https://mausam.imd.gov.in/css/all.css">
+    <link rel="stylesheet" href="https://mausam.imd.gov.in/css/home.css"> -->
+    <script src="./app.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="headsearchbox" class="form-control mr-sm-2" type="search"
+                        placeholder="Search Your City Weather" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <section class="vh-100 col-12 container">
+        <div id="city_weather col-4" >
+
+            <div id="label">
+                <h3 style="color:#fff; font-size: 18px;">New Delhi <img style="width: 13px;" src="img/blue_square.png">
+                </h3>
+            </div>
+
+            <!--### commented for displaying current weather on main page###-->
+            <div style="float: left; padding:5px 3px 5px 5px; ">
+                <img style="height:30px;width:30px; " src="img/5.png" title="">
+            </div>
+
+            <div style="padding:5px 3px 5px 5px; ">
+                <div id="temperature" class="temp"><i class="fa fa-thermometer-half"></i> 30.2<sup>o</sup>C</div>
+
+                <div id="temperature1" style=" padding:5px 3px 5px 5px;" class="temp"><i class="fa fa-tint"></i> 47%
+                </div>
+            </div>
+
+
+
+
+
+            <div style="float: left; ">
+                <ul style="padding:1% 0 1% 0">
+                    <li class="sun-info"><i class="fa fa-wind"></i> Calm 0 km/h</li>
+
+                </ul>
+                
+                <div class="col-md-12" style="padding-top:2%">
+                    <small class="small">Observation time : 2022-04-10 20.30 IST </small>
+                    <p><span> Sunrise: 06:02 (IST) </span> <br> <span> Sunset: 18:44 (IST) </span> <br><span> Moonrise: 12:30 (IST) </span>  <br><span> Moonset: 02:05 (IST) </span> </p>
+                    
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div id="city_weatasher col-4" >
+
+            <div id="label">
+                <h3 style="color:#fff; font-size: 18px;">New Delhi <img style="width: 13px;" src="img/blue_square.png">
+                </h3>
+            </div>
+
+            <!--### commented for displaying current weather on main page###-->
+            <div style="float: left; padding:5px 3px 5px 5px; ">
+                <img style="height:30px;width:30px; " src="img/5.png" title="">
+            </div>
+
+            <div style="padding:5px 3px 5px 5px; ">
+                <div id="temperature" class="temp"><i class="fa fa-thermometer-half"></i> 30.2<sup>o</sup>C</div>
+
+                <div id="temperature1" style=" padding:5px 3px 5px 5px;" class="temp"><i class="fa fa-tint"></i> 47%
+                </div>
+            </div>
+
+
+
+
+
+            <div style="float: left; ">
+                <ul style="padding:1% 0 1% 0">
+                    <li class="sun-info"><i class="fa fa-wind"></i> Calm 0 km/h</li>
+
+                </ul>
+                
+                <div class="col-md-12" style="padding-top:2%">
+                    <small class="small">Observation time : 2022-04-10 20.30 IST </small>
+                    <p><span> Sunrise: 06:02 (IST) </span> <br> <span> Sunset: 18:44 (IST) </span> <br><span> Moonrise: 12:30 (IST) </span>  <br><span> Moonset: 02:05 (IST) </span> </p>
+                    
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section>
+    <footer >
+        <section id="today" class="col-12 bg-primary container-fluid h-100">
+            <div w-100>
+                <h2 class="text-center">Current Weather across Major Cities</h2>
+                <div class="">
+                    <div class="col-2">
+                        <h3>Mumbai </h3>
+                        <p class="now"><span class="val">31.2°</span></p>
+                        <p class="wind">Northwesterly<br> 7.5km/h</p>
+                        <p class="minmax"><span class="max"><i class="fas fa-tint"></i> 71%</span></p>
+                        <p class="precis"><img src="" style=""></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </footer>
+</body>
+
+</html>

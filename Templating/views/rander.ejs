@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('part/head') %>
+
+<body class="container">
+  <%- include('part/navbar') %>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading"></h4>
+    <% if (rand % 2 ===0) { %>
+      <p> Your random Number EVEN: <%= rand %>
+      <%} else { %>
+        <p> Your random Number ODD: <%= rand %>
+      <% } %>
+       
+        </p>
+      </p>
+
+      <%= rand%2 === 0 ? 'Its a Even Number' : 'Its a Odd Number' %>
+        <p class="mb-0"></p>
+  </div>
+
+
+  <div class="looping">
+    <h3>Example of EJS DATA</h3>
+  </div>
+
+
+</body>
+
+</html>

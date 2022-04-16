@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('part/head') %>
+<body class="container">
+    <%- include('part/navbar') %>
+    <h1>ALl the CATS </h1>
+    <div>
+        <p><%= cats %> </p>
+        <ul> <%  for (let cat of cats){ %>
+            <li> <%= cat %></li> 
+      <%  } %></ul>
+     
+
+    </div>
+</body>
+</html>

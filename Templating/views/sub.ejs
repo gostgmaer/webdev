@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('part/head') %>
+
+  <body class="container">
+  
+    <%- include('part/navbar') %>
+
+    <div class="alert alert-success" role="alert">
+      <h2 class="alert-heading"> This is an example of: <%= description%>
+      </h2>
+      <h3>Subscriber: <%= subscribers%>
+      </h3>
+
+
+      <hr>
+      <div>
+
+        <div>
+          <% for (let post of posts){ %>
+            <article>
+
+              <p>
+                <%= post.title %> :- <b>
+                    <%= post.author %>
+                  </b>
+              </p>
+              <% if(post.img) { %>
+                <img src="<%= post.img %>" alt="<%= post.title %>">
+
+                <%}%>
+            </article>
+            <% } %>
+        </div>
+
+
+      </div>
+
+
+      <p class="mb-0"></p>
+    </div>
+  </body>
+
+</html>
