@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../part/head') %>
+
+<body class="container">
+    <%- include('../part/navbar') %>
+    <h1>Comment index is working fine for this API</h1>
+
+
+
+    <div class="container">
+        <section>
+            <form action="/comment" method="post">
+                <form class="form-inline">
+                    <div class="form-group">
+                        
+                        <input  type="text" name="name" id="name" class="form-control" placeholder="Full Name" aria-describedby="helpId">
+                        <input type="text" name="ip_address" id="ip_address" class="form-control" placeholder="IP Address" aria-describedby="helpId">
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Email address" aria-describedby="helpId">
+                        <br>
+                       <div class="form-group">
+                         
+                         <textarea class="form-control" name="useragent" id="useragent" rows="3"></textarea>
+                       </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </form>
+        </section>
+
+
+       
+    </div>
+
+    <section hidden>
+        <div>
+            <ul>
+                <% for(let data of resdata ) {%>
+                    <li><b><%=data.name %> - </b> <%=data.email %> |  <%=data.useragent %> </li>
+
+
+
+                    <% } %>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
