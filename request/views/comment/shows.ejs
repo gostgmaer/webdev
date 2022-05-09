@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../part/head') %>
+
+<body class="container">
+    <%- include('../part/navbar') %>
+
+
+    <div m-5>
+        <h1>Comment ID:  <%=    comments.id %></h1>
+        <div> <%=comments.name %> <br> <%=comments.email %> <br>  <%=comments.ip_address %> <br> <%=comments.useragent %></div>
+    </div>
+
+    <div class="m-5">
+        <a name="" id="" class="btn btn-primary" href="/comment" role="button">Show Index</a>
+        <a name="" id="" class="btn btn-primary" href="/comment/<%=comments.id%>/edit" role="button">Edit Comment</a>
+    </div>
+    <section>
+        <form action="/comment/<%= comments.id %>?_method=DELETE" method="post">
+            <button  class="btn btn-primary">Delete</button>
+        </form>
+    </section>
+
+
+    <div class="container d-none">
+        <section>
+            <form action="/comment" method="post">
+                <form class="form-inline">
+                    <div class="form-group">
+                        
+                        <input  type="text" name="name" id="name" class="form-control" placeholder="Full Name" aria-describedby="helpId">
+                        <input type="text" name="ip_address" id="ip_address" class="form-control" placeholder="IP Address" aria-describedby="helpId">
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Email address" aria-describedby="helpId">
+                        <br>
+                       <div class="form-group">
+                         
+                         <textarea class="form-control" name="useragent" id="useragent" rows="3"></textarea>
+                       </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </form>
+        </section>
+
+       
+       
+    </div>
+
+    <section hidden>
+        <div>
+            <ul>
+            
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../part/head') %>
+
+<body class="container">
+    <%- include('../part/navbar') %>
+    <h1>Comment index is working fine for this API</h1>
+
+
+
+    <div class="container">
+        <section>
+            <form action="/comment/<%=foundComment.id%>?_method=PATCH" method="post">
+                <form class="form-inline">
+                    <div class="form-group">
+                        
+                        <input  type="text" name="name" id="name" class="form-control" placeholder="Full Name" aria-describedby="helpId" value="<%=foundComment.name %>">
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </form>
+        </section>
+
+
+       
+    </div>
+
+  
+</body>
+</html>

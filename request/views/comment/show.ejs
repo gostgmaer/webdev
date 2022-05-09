@@ -5,7 +5,7 @@
 <body class="container">
     <%- include('../part/navbar') %>
 
-    <h1>Comment index is working fine for this API</h1>
+    <h1>Comment ID:  <% for(let data of resdata ) {%> </h1>
 
 
     <section >
@@ -15,15 +15,24 @@
                     <li>
                         <div>
                             <b><%=data.name %> - </b> <%=data.email %> <br>  <%=data.useragent %> <br> <%=data.ip_address %> 
-                        </div> <a href="/comment/<%=data.id%>"> Details</a> </li> 
-            
+                        </div></li>
+                       
+                        
+
+
 
                     <% } %>
-                    
                 
             </ul>
         </div>
         <section> <a name="new" id="new" class="btn btn-primary" href="/comment/new" role="button">New Comment</a> </section>
+    </section>
+
+
+    <section>
+        <form action="/comment/<%= comment.id %>?_method=DELETE" method="post">
+            <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block">Delete</button>
+        </form>
     </section>
     <footer>
        

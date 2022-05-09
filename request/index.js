@@ -1,9 +1,14 @@
 const express = require('express');
+var methodOverride = require('method-override')
 const { request } = require('http');
 const app = express();
 const path = require('path')
-app.use(express.static(path.join(__dirname, '/assets')))
+const { v4: uidv4 } = require('uuid');
 
+const methodOerride = require('method-override');
+uidv4();
+app.use(express.static(path.join(__dirname, '/assets')))
+app.use(methodOerride("_method"))
 
 app.use(express.urlencoded({ extended: true }))
 
@@ -13,62 +18,62 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-const resdata = [{
-    "id": 1,
+let resdata = [{
+    "id": uidv4(),
     "name": "Beatrix Ricoald",
     "email": "bricoald0@storify.com",
     "ip_address": "170.206.94.245",
     "useragent": "Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0"
 }, {
-    "id": 2,
+    "id": uidv4(),
     "name": "Sandye Sprowles",
     "email": "ssprowles1@livejournal.com",
     "ip_address": "55.126.5.23",
     "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.215 Safari/535.1"
 }, {
-    "id": 3,
+    "id": uidv4(),
     "name": "Sidoney Rissom",
     "email": "srissom2@cbsnews.com",
     "ip_address": "208.156.167.53",
     "useragent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4"
 }, {
-    "id": 4,
+    "id": uidv4(),
     "name": "Bertie Decourt",
     "email": "bdecourt3@skyrock.com",
     "ip_address": "54.157.38.210",
     "useragent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_8; zh-tw) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16"
 }, {
-    "id": 5,
+    "id": uidv4(),
     "name": "Ralph Samett",
     "email": "rsamett4@myspace.com",
     "ip_address": "38.87.186.103",
     "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.71 Safari/534.24"
 }, {
-    "id": 6,
+    "id": uidv4(),
     "name": "Mel Wattisham",
     "email": "mwattisham5@prweb.com",
     "ip_address": "18.134.86.140",
     "useragent": "Mozilla/5.0 (Windows; U; Windows NT 6.0; ja-JP) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
 }, {
-    "id": 7,
+    "id": uidv4(),
     "name": "Cornelius Bedinham",
     "email": "cbedinham6@cam.ac.uk",
     "ip_address": "85.227.96.103",
     "useragent": "Mozilla/5.0 (Windows NT) AppleWebKit/534.20 (KHTML, like Gecko) Chrome/11.0.672.2 Safari/534.20"
 }, {
-    "id": 8,
+    "id": uidv4(),
     "name": "Prudence Bufton",
     "email": "pbufton7@time.com",
     "ip_address": "243.117.235.64",
     "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.11 Safari/535.19"
 }, {
-    "id": 9,
+    "id": uidv4(),
     "name": "Baxter Arens",
     "email": "barens8@squidoo.com",
     "ip_address": "28.244.3.129",
     "useragent": "Mozilla/5.0 (Windows NT 5.1; rv:15.0) Gecko/20100101 Firefox/13.0.1"
 }, {
-    "id": 10,
+    "id": uidv4(),
     "name": "Patricio Stoddart",
     "email": "pstoddart9@google.ru",
     "ip_address": "80.25.25.176",
@@ -79,16 +84,21 @@ app.get('/comment', (req, res) => {
     res.render('comment/index', { resdata })
 })
 
-app.get('/comment/new',(req,res)=>{
-   res.render('comment/new', { resdata })
+app.get('/comment/new', (req, res) => {
+    res.render('comment/new', { resdata })
 })
 app.post('/comment', (req, res) => {
-    const { name, email,useragent,ip_address } = req.body;
-    resdata.push({name, email,useragent,ip_address})
-   
-     res.redirect('/comment') 
+    const { name, email, useragent, ip_address } = req.body;
+    resdata.push({ name, email, useragent, ip_address, id: uidv4() })
+
+    res.redirect('/comment')
 })
 
+app.get('/comment/:id', (req, res) => {
+    const { id } = req.params;
+    const comments = resdata.find(c => c.id === id)
+    res.render('comment/shows', { comments })
+})
 
 
 app.get('/gets', (req, res) => {
@@ -103,7 +113,32 @@ app.post('/posts', (req, res) => {
 })
 
 
+app.patch('/comment/:id', (req, res) => {
+    const { id } = req.params;
+    const foundComment = resdata.find(c => c.id === id);
+    const newComntTxt = req.body.name;
 
+    foundComment.name = newComntTxt;
+    res.redirect('/comment');
+})
+
+
+app.delete('/comment/:id', (req, res) => {
+    const { id } = req.params;
+   /*  const foundData = resdata.find(c => c.id !== id) */
+   resdata = resdata.filter(c => c.id !== id);
+   res.redirect('/comment');
+})
+
+
+
+
+app.get('/comment/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const foundComment = resdata.find(c => c.id === id);
+    res.render('comment/edit', { foundComment })
+
+})
 
 
 app.listen(888, () => {
